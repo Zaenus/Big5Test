@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Big Five Personality Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="lang-selector">
+        <label for="lang-select">Language / Idioma:</label>
+        <select id="lang-select">
+            <option value="en">English</option>
+            <option value="pt">Português</option>
+        </select>
+    </div>
+    <h1 id="title">Big Five Personality Test</h1>
+    <p id="phrase">Please provide some basic information to start the test.</p>
+    
+    <div id="personal-section">
+        <form id="personal-form">
+            <div class="personal-info">
+                <label id="name-label" for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label id="age-label" for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" required>
+                
+                <label id="sex-label" for="sex">Sex:</label>
+                <select id="sex" name="sex" required>
+                    <option id="select-option" value="">Select</option>
+                    <option id="male-option" value="Male">Male</option>
+                    <option id="female-option" value="Female">Female</option>
+                    <option id="other-option" value="Other">Other</option>
+                    <option id="prefer-option" value="Prefer not to say">Prefer not to say</option>
+                </select>
+            </div>
+            <button id="start-button" type="submit">Start Test</button>
+        </form>
+    </div>
+    
+    <div id="quiz-section" style="display: none;">
+        <p id="quiz-instr">Answer honestly on a scale of 1 (Very Inaccurate) to 5 (Very Accurate).</p>
+        <form id="personality-form">
+            <div class="question">
+                <p>1. Am the life of the party.</p>
+                <label><input type="radio" name="q1" value="1"> 1</label>
+                <label><input type="radio" name="q1" value="2"> 2</label>
+                <label><input type="radio" name="q1" value="3"> 3</label>
+                <label><input type="radio" name="q1" value="4"> 4</label>
+                <label><input type="radio" name="q1" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>2. Feel little concern for others.</p>
+                <label><input type="radio" name="q2" value="1"> 1</label>
+                <label><input type="radio" name="q2" value="2"> 2</label>
+                <label><input type="radio" name="q2" value="3"> 3</label>
+                <label><input type="radio" name="q2" value="4"> 4</label>
+                <label><input type="radio" name="q2" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>3. Am always prepared.</p>
+                <label><input type="radio" name="q3" value="1"> 1</label>
+                <label><input type="radio" name="q3" value="2"> 2</label>
+                <label><input type="radio" name="q3" value="3"> 3</label>
+                <label><input type="radio" name="q3" value="4"> 4</label>
+                <label><input type="radio" name="q3" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>4. Get stressed out easily.</p>
+                <label><input type="radio" name="q4" value="1"> 1</label>
+                <label><input type="radio" name="q4" value="2"> 2</label>
+                <label><input type="radio" name="q4" value="3"> 3</label>
+                <label><input type="radio" name="q4" value="4"> 4</label>
+                <label><input type="radio" name="q4" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>5. Have a rich vocabulary.</p>
+                <label><input type="radio" name="q5" value="1"> 1</label>
+                <label><input type="radio" name="q5" value="2"> 2</label>
+                <label><input type="radio" name="q5" value="3"> 3</label>
+                <label><input type="radio" name="q5" value="4"> 4</label>
+                <label><input type="radio" name="q5" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>6. Don't talk a lot.</p>
+                <label><input type="radio" name="q6" value="1"> 1</label>
+                <label><input type="radio" name="q6" value="2"> 2</label>
+                <label><input type="radio" name="q6" value="3"> 3</label>
+                <label><input type="radio" name="q6" value="4"> 4</label>
+                <label><input type="radio" name="q6" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>7. Am interested in people.</p>
+                <label><input type="radio" name="q7" value="1"> 1</label>
+                <label><input type="radio" name="q7" value="2"> 2</label>
+                <label><input type="radio" name="q7" value="3"> 3</label>
+                <label><input type="radio" name="q7" value="4"> 4</label>
+                <label><input type="radio" name="q7" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>8. Leave my belongings around.</p>
+                <label><input type="radio" name="q8" value="1"> 1</label>
+                <label><input type="radio" name="q8" value="2"> 2</label>
+                <label><input type="radio" name="q8" value="3"> 3</label>
+                <label><input type="radio" name="q8" value="4"> 4</label>
+                <label><input type="radio" name="q8" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>9. Am relaxed most of the time.</p>
+                <label><input type="radio" name="q9" value="1"> 1</label>
+                <label><input type="radio" name="q9" value="2"> 2</label>
+                <label><input type="radio" name="q9" value="3"> 3</label>
+                <label><input type="radio" name="q9" value="4"> 4</label>
+                <label><input type="radio" name="q9" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>10. Have difficulty understanding abstract ideas.</p>
+                <label><input type="radio" name="q10" value="1"> 1</label>
+                <label><input type="radio" name="q10" value="2"> 2</label>
+                <label><input type="radio" name="q10" value="3"> 3</label>
+                <label><input type="radio" name="q10" value="4"> 4</label>
+                <label><input type="radio" name="q10" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>11. Feel comfortable around people.</p>
+                <label><input type="radio" name="q11" value="1"> 1</label>
+                <label><input type="radio" name="q11" value="2"> 2</label>
+                <label><input type="radio" name="q11" value="3"> 3</label>
+                <label><input type="radio" name="q11" value="4"> 4</label>
+                <label><input type="radio" name="q11" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>12. Insult people.</p>
+                <label><input type="radio" name="q12" value="1"> 1</label>
+                <label><input type="radio" name="q12" value="2"> 2</label>
+                <label><input type="radio" name="q12" value="3"> 3</label>
+                <label><input type="radio" name="q12" value="4"> 4</label>
+                <label><input type="radio" name="q12" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>13. Pay attention to details.</p>
+                <label><input type="radio" name="q13" value="1"> 1</label>
+                <label><input type="radio" name="q13" value="2"> 2</label>
+                <label><input type="radio" name="q13" value="3"> 3</label>
+                <label><input type="radio" name="q13" value="4"> 4</label>
+                <label><input type="radio" name="q13" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>14. Worry about things.</p>
+                <label><input type="radio" name="q14" value="1"> 1</label>
+                <label><input type="radio" name="q14" value="2"> 2</label>
+                <label><input type="radio" name="q14" value="3"> 3</label>
+                <label><input type="radio" name="q14" value="4"> 4</label>
+                <label><input type="radio" name="q14" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>15. Have a vivid imagination.</p>
+                <label><input type="radio" name="q15" value="1"> 1</label>
+                <label><input type="radio" name="q15" value="2"> 2</label>
+                <label><input type="radio" name="q15" value="3"> 3</label>
+                <label><input type="radio" name="q15" value="4"> 4</label>
+                <label><input type="radio" name="q15" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>16. Keep in the background.</p>
+                <label><input type="radio" name="q16" value="1"> 1</label>
+                <label><input type="radio" name="q16" value="2"> 2</label>
+                <label><input type="radio" name="q16" value="3"> 3</label>
+                <label><input type="radio" name="q16" value="4"> 4</label>
+                <label><input type="radio" name="q16" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>17. Sympathize with others' feelings.</p>
+                <label><input type="radio" name="q17" value="1"> 1</label>
+                <label><input type="radio" name="q17" value="2"> 2</label>
+                <label><input type="radio" name="q17" value="3"> 3</label>
+                <label><input type="radio" name="q17" value="4"> 4</label>
+                <label><input type="radio" name="q17" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>18. Make a mess of things.</p>
+                <label><input type="radio" name="q18" value="1"> 1</label>
+                <label><input type="radio" name="q18" value="2"> 2</label>
+                <label><input type="radio" name="q18" value="3"> 3</label>
+                <label><input type="radio" name="q18" value="4"> 4</label>
+                <label><input type="radio" name="q18" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>19. Seldom feel blue.</p>
+                <label><input type="radio" name="q19" value="1"> 1</label>
+                <label><input type="radio" name="q19" value="2"> 2</label>
+                <label><input type="radio" name="q19" value="3"> 3</label>
+                <label><input type="radio" name="q19" value="4"> 4</label>
+                <label><input type="radio" name="q19" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>20. Am not interested in abstract ideas.</p>
+                <label><input type="radio" name="q20" value="1"> 1</label>
+                <label><input type="radio" name="q20" value="2"> 2</label>
+                <label><input type="radio" name="q20" value="3"> 3</label>
+                <label><input type="radio" name="q20" value="4"> 4</label>
+                <label><input type="radio" name="q20" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>21. Start conversations.</p>
+                <label><input type="radio" name="q21" value="1"> 1</label>
+                <label><input type="radio" name="q21" value="2"> 2</label>
+                <label><input type="radio" name="q21" value="3"> 3</label>
+                <label><input type="radio" name="q21" value="4"> 4</label>
+                <label><input type="radio" name="q21" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>22. Am not interested in other people's problems.</p>
+                <label><input type="radio" name="q22" value="1"> 1</label>
+                <label><input type="radio" name="q22" value="2"> 2</label>
+                <label><input type="radio" name="q22" value="3"> 3</label>
+                <label><input type="radio" name="q22" value="4"> 4</label>
+                <label><input type="radio" name="q22" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>23. Get chores done right away.</p>
+                <label><input type="radio" name="q23" value="1"> 1</label>
+                <label><input type="radio" name="q23" value="2"> 2</label>
+                <label><input type="radio" name="q23" value="3"> 3</label>
+                <label><input type="radio" name="q23" value="4"> 4</label>
+                <label><input type="radio" name="q23" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>24. Am easily disturbed.</p>
+                <label><input type="radio" name="q24" value="1"> 1</label>
+                <label><input type="radio" name="q24" value="2"> 2</label>
+                <label><input type="radio" name="q24" value="3"> 3</label>
+                <label><input type="radio" name="q24" value="4"> 4</label>
+                <label><input type="radio" name="q24" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>25. Have excellent ideas.</p>
+                <label><input type="radio" name="q25" value="1"> 1</label>
+                <label><input type="radio" name="q25" value="2"> 2</label>
+                <label><input type="radio" name="q25" value="3"> 3</label>
+                <label><input type="radio" name="q25" value="4"> 4</label>
+                <label><input type="radio" name="q25" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>26. Have little to say.</p>
+                <label><input type="radio" name="q26" value="1"> 1</label>
+                <label><input type="radio" name="q26" value="2"> 2</label>
+                <label><input type="radio" name="q26" value="3"> 3</label>
+                <label><input type="radio" name="q26" value="4"> 4</label>
+                <label><input type="radio" name="q26" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>27. Have a soft heart.</p>
+                <label><input type="radio" name="q27" value="1"> 1</label>
+                <label><input type="radio" name="q27" value="2"> 2</label>
+                <label><input type="radio" name="q27" value="3"> 3</label>
+                <label><input type="radio" name="q27" value="4"> 4</label>
+                <label><input type="radio" name="q27" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>28. Often forget to put things back in their proper place.</p>
+                <label><input type="radio" name="q28" value="1"> 1</label>
+                <label><input type="radio" name="q28" value="2"> 2</label>
+                <label><input type="radio" name="q28" value="3"> 3</label>
+                <label><input type="radio" name="q28" value="4"> 4</label>
+                <label><input type="radio" name="q28" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>29. Get upset easily.</p>
+                <label><input type="radio" name="q29" value="1"> 1</label>
+                <label><input type="radio" name="q29" value="2"> 2</label>
+                <label><input type="radio" name="q29" value="3"> 3</label>
+                <label><input type="radio" name="q29" value="4"> 4</label>
+                <label><input type="radio" name="q29" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>30. Do not have a good imagination.</p>
+                <label><input type="radio" name="q30" value="1"> 1</label>
+                <label><input type="radio" name="q30" value="2"> 2</label>
+                <label><input type="radio" name="q30" value="3"> 3</label>
+                <label><input type="radio" name="q30" value="4"> 4</label>
+                <label><input type="radio" name="q30" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>31. Talk to a lot of different people at parties.</p>
+                <label><input type="radio" name="q31" value="1"> 1</label>
+                <label><input type="radio" name="q31" value="2"> 2</label>
+                <label><input type="radio" name="q31" value="3"> 3</label>
+                <label><input type="radio" name="q31" value="4"> 4</label>
+                <label><input type="radio" name="q31" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>32. Am not really interested in others.</p>
+                <label><input type="radio" name="q32" value="1"> 1</label>
+                <label><input type="radio" name="q32" value="2"> 2</label>
+                <label><input type="radio" name="q32" value="3"> 3</label>
+                <label><input type="radio" name="q32" value="4"> 4</label>
+                <label><input type="radio" name="q32" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>33. Like order.</p>
+                <label><input type="radio" name="q33" value="1"> 1</label>
+                <label><input type="radio" name="q33" value="2"> 2</label>
+                <label><input type="radio" name="q33" value="3"> 3</label>
+                <label><input type="radio" name="q33" value="4"> 4</label>
+                <label><input type="radio" name="q33" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>34. Change my mood a lot.</p>
+                <label><input type="radio" name="q34" value="1"> 1</label>
+                <label><input type="radio" name="q34" value="2"> 2</label>
+                <label><input type="radio" name="q34" value="3"> 3</label>
+                <label><input type="radio" name="q34" value="4"> 4</label>
+                <label><input type="radio" name="q34" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>35. Am quick to understand things.</p>
+                <label><input type="radio" name="q35" value="1"> 1</label>
+                <label><input type="radio" name="q35" value="2"> 2</label>
+                <label><input type="radio" name="q35" value="3"> 3</label>
+                <label><input type="radio" name="q35" value="4"> 4</label>
+                <label><input type="radio" name="q35" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>36. Don't like to draw attention to myself.</p>
+                <label><input type="radio" name="q36" value="1"> 1</label>
+                <label><input type="radio" name="q36" value="2"> 2</label>
+                <label><input type="radio" name="q36" value="3"> 3</label>
+                <label><input type="radio" name="q36" value="4"> 4</label>
+                <label><input type="radio" name="q36" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>37. Take time out for others.</p>
+                <label><input type="radio" name="q37" value="1"> 1</label>
+                <label><input type="radio" name="q37" value="2"> 2</label>
+                <label><input type="radio" name="q37" value="3"> 3</label>
+                <label><input type="radio" name="q37" value="4"> 4</label>
+                <label><input type="radio" name="q37" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>38. Shirk my duties.</p>
+                <label><input type="radio" name="q38" value="1"> 1</label>
+                <label><input type="radio" name="q38" value="2"> 2</label>
+                <label><input type="radio" name="q38" value="3"> 3</label>
+                <label><input type="radio" name="q38" value="4"> 4</label>
+                <label><input type="radio" name="q38" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>39. Have frequent mood swings.</p>
+                <label><input type="radio" name="q39" value="1"> 1</label>
+                <label><input type="radio" name="q39" value="2"> 2</label>
+                <label><input type="radio" name="q39" value="3"> 3</label>
+                <label><input type="radio" name="q39" value="4"> 4</label>
+                <label><input type="radio" name="q39" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>40. Use difficult words.</p>
+                <label><input type="radio" name="q40" value="1"> 1</label>
+                <label><input type="radio" name="q40" value="2"> 2</label>
+                <label><input type="radio" name="q40" value="3"> 3</label>
+                <label><input type="radio" name="q40" value="4"> 4</label>
+                <label><input type="radio" name="q40" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>41. Don't mind being the center of attention.</p>
+                <label><input type="radio" name="q41" value="1"> 1</label>
+                <label><input type="radio" name="q41" value="2"> 2</label>
+                <label><input type="radio" name="q41" value="3"> 3</label>
+                <label><input type="radio" name="q41" value="4"> 4</label>
+                <label><input type="radio" name="q41" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>42. Feel others' emotions.</p>
+                <label><input type="radio" name="q42" value="1"> 1</label>
+                <label><input type="radio" name="q42" value="2"> 2</label>
+                <label><input type="radio" name="q42" value="3"> 3</label>
+                <label><input type="radio" name="q42" value="4"> 4</label>
+                <label><input type="radio" name="q42" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>43. Follow a schedule.</p>
+                <label><input type="radio" name="q43" value="1"> 1</label>
+                <label><input type="radio" name="q43" value="2"> 2</label>
+                <label><input type="radio" name="q43" value="3"> 3</label>
+                <label><input type="radio" name="q43" value="4"> 4</label>
+                <label><input type="radio" name="q43" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>44. Get irritated easily.</p>
+                <label><input type="radio" name="q44" value="1"> 1</label>
+                <label><input type="radio" name="q44" value="2"> 2</label>
+                <label><input type="radio" name="q44" value="3"> 3</label>
+                <label><input type="radio" name="q44" value="4"> 4</label>
+                <label><input type="radio" name="q44" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>45. Spend time reflecting on things.</p>
+                <label><input type="radio" name="q45" value="1"> 1</label>
+                <label><input type="radio" name="q45" value="2"> 2</label>
+                <label><input type="radio" name="q45" value="3"> 3</label>
+                <label><input type="radio" name="q45" value="4"> 4</label>
+                <label><input type="radio" name="q45" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>46. Am quiet around strangers.</p>
+                <label><input type="radio" name="q46" value="1"> 1</label>
+                <label><input type="radio" name="q46" value="2"> 2</label>
+                <label><input type="radio" name="q46" value="3"> 3</label>
+                <label><input type="radio" name="q46" value="4"> 4</label>
+                <label><input type="radio" name="q46" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>47. Make people feel at ease.</p>
+                <label><input type="radio" name="q47" value="1"> 1</label>
+                <label><input type="radio" name="q47" value="2"> 2</label>
+                <label><input type="radio" name="q47" value="3"> 3</label>
+                <label><input type="radio" name="q47" value="4"> 4</label>
+                <label><input type="radio" name="q47" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>48. Am exacting in my work.</p>
+                <label><input type="radio" name="q48" value="1"> 1</label>
+                <label><input type="radio" name="q48" value="2"> 2</label>
+                <label><input type="radio" name="q48" value="3"> 3</label>
+                <label><input type="radio" name="q48" value="4"> 4</label>
+                <label><input type="radio" name="q48" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>49. Often feel blue.</p>
+                <label><input type="radio" name="q49" value="1"> 1</label>
+                <label><input type="radio" name="q49" value="2"> 2</label>
+                <label><input type="radio" name="q49" value="3"> 3</label>
+                <label><input type="radio" name="q49" value="4"> 4</label>
+                <label><input type="radio" name="q49" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>50. Am full of ideas.</p>
+                <label><input type="radio" name="q50" value="1"> 1</label>
+                <label><input type="radio" name="q50" value="2"> 2</label>
+                <label><input type="radio" name="q50" value="3"> 3</label>
+                <label><input type="radio" name="q50" value="4"> 4</label>
+                <label><input type="radio" name="q50" value="5"> 5</label>
+            </div>
+            
+            <!-- Additional questions from IPIP 100-item inventory -->
+            <div class="question">
+                <p>51. Make friends easily.</p>
+                <label><input type="radio" name="q51" value="1"> 1</label>
+                <label><input type="radio" name="q51" value="2"> 2</label>
+                <label><input type="radio" name="q51" value="3"> 3</label>
+                <label><input type="radio" name="q51" value="4"> 4</label>
+                <label><input type="radio" name="q51" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>52. Take charge.</p>
+                <label><input type="radio" name="q52" value="1"> 1</label>
+                <label><input type="radio" name="q52" value="2"> 2</label>
+                <label><input type="radio" name="q52" value="3"> 3</label>
+                <label><input type="radio" name="q52" value="4"> 4</label>
+                <label><input type="radio" name="q52" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>53. Know how to captivate people.</p>
+                <label><input type="radio" name="q53" value="1"> 1</label>
+                <label><input type="radio" name="q53" value="2"> 2</label>
+                <label><input type="radio" name="q53" value="3"> 3</label>
+                <label><input type="radio" name="q53" value="4"> 4</label>
+                <label><input type="radio" name="q53" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>54. Feel at ease with people.</p>
+                <label><input type="radio" name="q54" value="1"> 1</label>
+                <label><input type="radio" name="q54" value="2"> 2</label>
+                <label><input type="radio" name="q54" value="3"> 3</label>
+                <label><input type="radio" name="q54" value="4"> 4</label>
+                <label><input type="radio" name="q54" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>55. Am skilled in handling social situations.</p>
+                <label><input type="radio" name="q55" value="1"> 1</label>
+                <label><input type="radio" name="q55" value="2"> 2</label>
+                <label><input type="radio" name="q55" value="3"> 3</label>
+                <label><input type="radio" name="q55" value="4"> 4</label>
+                <label><input type="radio" name="q55" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>56. Find it difficult to approach others.</p>
+                <label><input type="radio" name="q56" value="1"> 1</label>
+                <label><input type="radio" name="q56" value="2"> 2</label>
+                <label><input type="radio" name="q56" value="3"> 3</label>
+                <label><input type="radio" name="q56" value="4"> 4</label>
+                <label><input type="radio" name="q56" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>57. Often feel uncomfortable around others.</p>
+                <label><input type="radio" name="q57" value="1"> 1</label>
+                <label><input type="radio" name="q57" value="2"> 2</label>
+                <label><input type="radio" name="q57" value="3"> 3</label>
+                <label><input type="radio" name="q57" value="4"> 4</label>
+                <label><input type="radio" name="q57" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>58. Bottle up my feelings.</p>
+                <label><input type="radio" name="q58" value="1"> 1</label>
+                <label><input type="radio" name="q58" value="2"> 2</label>
+                <label><input type="radio" name="q58" value="3"> 3</label>
+                <label><input type="radio" name="q58" value="4"> 4</label>
+                <label><input type="radio" name="q58" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>59. Am a very private person.</p>
+                <label><input type="radio" name="q59" value="1"> 1</label>
+                <label><input type="radio" name="q59" value="2"> 2</label>
+                <label><input type="radio" name="q59" value="3"> 3</label>
+                <label><input type="radio" name="q59" value="4"> 4</label>
+                <label><input type="radio" name="q59" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>60. Wait for others to lead the way.</p>
+                <label><input type="radio" name="q60" value="1"> 1</label>
+                <label><input type="radio" name="q60" value="2"> 2</label>
+                <label><input type="radio" name="q60" value="3"> 3</label>
+                <label><input type="radio" name="q60" value="4"> 4</label>
+                <label><input type="radio" name="q60" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>61. Inquire about others' well-being.</p>
+                <label><input type="radio" name="q61" value="1"> 1</label>
+                <label><input type="radio" name="q61" value="2"> 2</label>
+                <label><input type="radio" name="q61" value="3"> 3</label>
+                <label><input type="radio" name="q61" value="4"> 4</label>
+                <label><input type="radio" name="q61" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>62. Know how to comfort others.</p>
+                <label><input type="radio" name="q62" value="1"> 1</label>
+                <label><input type="radio" name="q62" value="2"> 2</label>
+                <label><input type="radio" name="q62" value="3"> 3</label>
+                <label><input type="radio" name="q62" value="4"> 4</label>
+                <label><input type="radio" name="q62" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>63. Love children.</p>
+                <label><input type="radio" name="q63" value="1"> 1</label>
+                <label><input type="radio" name="q63" value="2"> 2</label>
+                <label><input type="radio" name="q63" value="3"> 3</label>
+                <label><input type="radio" name="q63" value="4"> 4</label>
+                <label><input type="radio" name="q63" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>64. Am on good terms with nearly everyone.</p>
+                <label><input type="radio" name="q64" value="1"> 1</label>
+                <label><input type="radio" name="q64" value="2"> 2</label>
+                <label><input type="radio" name="q64" value="3"> 3</label>
+                <label><input type="radio" name="q64" value="4"> 4</label>
+                <label><input type="radio" name="q64" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>65. Have a good word for everyone.</p>
+                <label><input type="radio" name="q65" value="1"> 1</label>
+                <label><input type="radio" name="q65" value="2"> 2</label>
+                <label><input type="radio" name="q65" value="3"> 3</label>
+                <label><input type="radio" name="q65" value="4"> 4</label>
+                <label><input type="radio" name="q65" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>66. Show my gratitude.</p>
+                <label><input type="radio" name="q66" value="1"> 1</label>
+                <label><input type="radio" name="q66" value="2"> 2</label>
+                <label><input type="radio" name="q66" value="3"> 3</label>
+                <label><input type="radio" name="q66" value="4"> 4</label>
+                <label><input type="radio" name="q66" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>67. Think of others first.</p>
+                <label><input type="radio" name="q67" value="1"> 1</label>
+                <label><input type="radio" name="q67" value="2"> 2</label>
+                <label><input type="radio" name="q67" value="3"> 3</label>
+                <label><input type="radio" name="q67" value="4"> 4</label>
+                <label><input type="radio" name="q67" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>68. Love to help others.</p>
+                <label><input type="radio" name="q68" value="1"> 1</label>
+                <label><input type="radio" name="q68" value="2"> 2</label>
+                <label><input type="radio" name="q68" value="3"> 3</label>
+                <label><input type="radio" name="q68" value="4"> 4</label>
+                <label><input type="radio" name="q68" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>69. Am hard to get to know.</p>
+                <label><input type="radio" name="q69" value="1"> 1</label>
+                <label><input type="radio" name="q69" value="2"> 2</label>
+                <label><input type="radio" name="q69" value="3"> 3</label>
+                <label><input type="radio" name="q69" value="4"> 4</label>
+                <label><input type="radio" name="q69" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>70. Am indifferent to the feelings of others.</p>
+                <label><input type="radio" name="q70" value="1"> 1</label>
+                <label><input type="radio" name="q70" value="2"> 2</label>
+                <label><input type="radio" name="q70" value="3"> 3</label>
+                <label><input type="radio" name="q70" value="4"> 4</label>
+                <label><input type="radio" name="q70" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>71. Do things according to a plan.</p>
+                <label><input type="radio" name="q71" value="1"> 1</label>
+                <label><input type="radio" name="q71" value="2"> 2</label>
+                <label><input type="radio" name="q71" value="3"> 3</label>
+                <label><input type="radio" name="q71" value="4"> 4</label>
+                <label><input type="radio" name="q71" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>72. Continue until everything is perfect.</p>
+                <label><input type="radio" name="q72" value="1"> 1</label>
+                <label><input type="radio" name="q72" value="2"> 2</label>
+                <label><input type="radio" name="q72" value="3"> 3</label>
+                <label><input type="radio" name="q72" value="4"> 4</label>
+                <label><input type="radio" name="q72" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>73. Make plans and stick to them.</p>
+                <label><input type="radio" name="q73" value="1"> 1</label>
+                <label><input type="radio" name="q73" value="2"> 2</label>
+                <label><input type="radio" name="q73" value="3"> 3</label>
+                <label><input type="radio" name="q73" value="4"> 4</label>
+                <label><input type="radio" name="q73" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>74. Love order and regularity.</p>
+                <label><input type="radio" name="q74" value="1"> 1</label>
+                <label><input type="radio" name="q74" value="2"> 2</label>
+                <label><input type="radio" name="q74" value="3"> 3</label>
+                <label><input type="radio" name="q74" value="4"> 4</label>
+                <label><input type="radio" name="q74" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>75. Like to tidy up.</p>
+                <label><input type="radio" name="q75" value="1"> 1</label>
+                <label><input type="radio" name="q75" value="2"> 2</label>
+                <label><input type="radio" name="q75" value="3"> 3</label>
+                <label><input type="radio" name="q75" value="4"> 4</label>
+                <label><input type="radio" name="q75" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>76. Neglect my duties.</p>
+                <label><input type="radio" name="q76" value="1"> 1</label>
+                <label><input type="radio" name="q76" value="2"> 2</label>
+                <label><input type="radio" name="q76" value="3"> 3</label>
+                <label><input type="radio" name="q76" value="4"> 4</label>
+                <label><input type="radio" name="q76" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>77. Waste my time.</p>
+                <label><input type="radio" name="q77" value="1"> 1</label>
+                <label><input type="radio" name="q77" value="2"> 2</label>
+                <label><input type="radio" name="q77" value="3"> 3</label>
+                <label><input type="radio" name="q77" value="4"> 4</label>
+                <label><input type="radio" name="q77" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>78. Do things in a half-way manner.</p>
+                <label><input type="radio" name="q78" value="1"> 1</label>
+                <label><input type="radio" name="q78" value="2"> 2</label>
+                <label><input type="radio" name="q78" value="3"> 3</label>
+                <label><input type="radio" name="q78" value="4"> 4</label>
+                <label><input type="radio" name="q78" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>79. Find it difficult to get down to work.</p>
+                <label><input type="radio" name="q79" value="1"> 1</label>
+                <label><input type="radio" name="q79" value="2"> 2</label>
+                <label><input type="radio" name="q79" value="3"> 3</label>
+                <label><input type="radio" name="q79" value="4"> 4</label>
+                <label><input type="radio" name="q79" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>80. Leave a mess in my room.</p>
+                <label><input type="radio" name="q80" value="1"> 1</label>
+                <label><input type="radio" name="q80" value="2"> 2</label>
+                <label><input type="radio" name="q80" value="3"> 3</label>
+                <label><input type="radio" name="q80" value="4"> 4</label>
+                <label><input type="radio" name="q80" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>81. Get angry easily.</p>
+                <label><input type="radio" name="q81" value="1"> 1</label>
+                <label><input type="radio" name="q81" value="2"> 2</label>
+                <label><input type="radio" name="q81" value="3"> 3</label>
+                <label><input type="radio" name="q81" value="4"> 4</label>
+                <label><input type="radio" name="q81" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>82. Panic easily.</p>
+                <label><input type="radio" name="q82" value="1"> 1</label>
+                <label><input type="radio" name="q82" value="2"> 2</label>
+                <label><input type="radio" name="q82" value="3"> 3</label>
+                <label><input type="radio" name="q82" value="4"> 4</label>
+                <label><input type="radio" name="q82" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>83. Feel threatened easily.</p>
+                <label><input type="radio" name="q83" value="1"> 1</label>
+                <label><input type="radio" name="q83" value="2"> 2</label>
+                <label><input type="radio" name="q83" value="3"> 3</label>
+                <label><input type="radio" name="q83" value="4"> 4</label>
+                <label><input type="radio" name="q83" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>84. Get overwhelmed by emotions.</p>
+                <label><input type="radio" name="q84" value="1"> 1</label>
+                <label><input type="radio" name="q84" value="2"> 2</label>
+                <label><input type="radio" name="q84" value="3"> 3</label>
+                <label><input type="radio" name="q84" value="4"> 4</label>
+                <label><input type="radio" name="q84" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>85. Take offense easily.</p>
+                <label><input type="radio" name="q85" value="1"> 1</label>
+                <label><input type="radio" name="q85" value="2"> 2</label>
+                <label><input type="radio" name="q85" value="3"> 3</label>
+                <label><input type="radio" name="q85" value="4"> 4</label>
+                <label><input type="radio" name="q85" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>86. Get caught up in my problems.</p>
+                <label><input type="radio" name="q86" value="1"> 1</label>
+                <label><input type="radio" name="q86" value="2"> 2</label>
+                <label><input type="radio" name="q86" value="3"> 3</label>
+                <label><input type="radio" name="q86" value="4"> 4</label>
+                <label><input type="radio" name="q86" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>87. Grumble about things.</p>
+                <label><input type="radio" name="q87" value="1"> 1</label>
+                <label><input type="radio" name="q87" value="2"> 2</label>
+                <label><input type="radio" name="q87" value="3"> 3</label>
+                <label><input type="radio" name="q87" value="4"> 4</label>
+                <label><input type="radio" name="q87" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>88. Am not easily bothered by things.</p>
+                <label><input type="radio" name="q88" value="1"> 1</label>
+                <label><input type="radio" name="q88" value="2"> 2</label>
+                <label><input type="radio" name="q88" value="3"> 3</label>
+                <label><input type="radio" name="q88" value="4"> 4</label>
+                <label><input type="radio" name="q88" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>89. Rarely get irritated.</p>
+                <label><input type="radio" name="q89" value="1"> 1</label>
+                <label><input type="radio" name="q89" value="2"> 2</label>
+                <label><input type="radio" name="q89" value="3"> 3</label>
+                <label><input type="radio" name="q89" value="4"> 4</label>
+                <label><input type="radio" name="q89" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>90. Seldom get mad.</p>
+                <label><input type="radio" name="q90" value="1"> 1</label>
+                <label><input type="radio" name="q90" value="2"> 2</label>
+                <label><input type="radio" name="q90" value="3"> 3</label>
+                <label><input type="radio" name="q90" value="4"> 4</label>
+                <label><input type="radio" name="q90" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>91. Carry the conversation to a higher level.</p>
+                <label><input type="radio" name="q91" value="1"> 1</label>
+                <label><input type="radio" name="q91" value="2"> 2</label>
+                <label><input type="radio" name="q91" value="3"> 3</label>
+                <label><input type="radio" name="q91" value="4"> 4</label>
+                <label><input type="radio" name="q91" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>92. Catch on to things quickly.</p>
+                <label><input type="radio" name="q92" value="1"> 1</label>
+                <label><input type="radio" name="q92" value="2"> 2</label>
+                <label><input type="radio" name="q92" value="3"> 3</label>
+                <label><input type="radio" name="q92" value="4"> 4</label>
+                <label><input type="radio" name="q92" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>93. Can handle a lot of information.</p>
+                <label><input type="radio" name="q93" value="1"> 1</label>
+                <label><input type="radio" name="q93" value="2"> 2</label>
+                <label><input type="radio" name="q93" value="3"> 3</label>
+                <label><input type="radio" name="q93" value="4"> 4</label>
+                <label><input type="radio" name="q93" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>94. Love to think up new ways of doing things.</p>
+                <label><input type="radio" name="q94" value="1"> 1</label>
+                <label><input type="radio" name="q94" value="2"> 2</label>
+                <label><input type="radio" name="q94" value="3"> 3</label>
+                <label><input type="radio" name="q94" value="4"> 4</label>
+                <label><input type="radio" name="q94" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>95. Love to read challenging material.</p>
+                <label><input type="radio" name="q95" value="1"> 1</label>
+                <label><input type="radio" name="q95" value="2"> 2</label>
+                <label><input type="radio" name="q95" value="3"> 3</label>
+                <label><input type="radio" name="q95" value="4"> 4</label>
+                <label><input type="radio" name="q95" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>96. Am good at many things.</p>
+                <label><input type="radio" name="q96" value="1"> 1</label>
+                <label><input type="radio" name="q96" value="2"> 2</label>
+                <label><input type="radio" name="q96" value="3"> 3</label>
+                <label><input type="radio" name="q96" value="4"> 4</label>
+                <label><input type="radio" name="q96" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>97. Try to avoid complex people.</p>
+                <label><input type="radio" name="q97" value="1"> 1</label>
+                <label><input type="radio" name="q97" value="2"> 2</label>
+                <label><input type="radio" name="q97" value="3"> 3</label>
+                <label><input type="radio" name="q97" value="4"> 4</label>
+                <label><input type="radio" name="q97" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>98. Have difficulty imagining things.</p>
+                <label><input type="radio" name="q98" value="1"> 1</label>
+                <label><input type="radio" name="q98" value="2"> 2</label>
+                <label><input type="radio" name="q98" value="3"> 3</label>
+                <label><input type="radio" name="q98" value="4"> 4</label>
+                <label><input type="radio" name="q98" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>99. Avoid difficult reading material.</p>
+                <label><input type="radio" name="q99" value="1"> 1</label>
+                <label><input type="radio" name="q99" value="2"> 2</label>
+                <label><input type="radio" name="q99" value="3"> 3</label>
+                <label><input type="radio" name="q99" value="4"> 4</label>
+                <label><input type="radio" name="q99" value="5"> 5</label>
+            </div>
+            
+            <div class="question">
+                <p>100. Will not probe deeply into a subject.</p>
+                <label><input type="radio" name="q100" value="1"> 1</label>
+                <label><input type="radio" name="q100" value="2"> 2</label>
+                <label><input type="radio" name="q100" value="3"> 3</label>
+                <label><input type="radio" name="q100" value="4"> 4</label>
+                <label><input type="radio" name="q100" value="5"> 5</label>
+            </div>
+            
+            <button id="submit-button" type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <div id="results" style="display: none;">
+        <h2 id="results-h2">Your Results</h2>
+        <canvas id="personalityChart" width="400" height="200"></canvas>
+        <p id="extraversion-desc"></p>
+        <p id="agreeableness-desc"></p>
+        <p id="conscientiousness-desc"></p>
+        <p id="neuroticism-desc"></p>
+        <p id="openness-desc"></p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

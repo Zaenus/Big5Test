@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}h1 {
+    text-align: center;
+    color: #333;
+}p {
+    text-align: center;
+    color: #666;
+}form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease;
+}.personal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}.personal-info label {
+    font-weight: bold;
+    color: #333;
+}.personal-info input,
+.personal-info select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+}.question {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    transition: opacity 0.3s ease;
+}.question p {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    text-align: left;
+    color: #444;
+}.question label {
+    margin-right: 15px;
+    cursor: pointer;
+}.question input[type="radio"] {
+    margin-right: 5px;
+}button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}button[type="submit"]:hover {
+    background-color: #45a049;
+}#results {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}#results.visible {
+    opacity: 1;
+}#results h2 {
+    text-align: center;
+    color: #333;
+}#results p {
+    margin: 10px 0;
+    text-align: left;
+    color: #555;
+}#personalityChart {
+    margin: 20px auto;
+    display: block;
+}/* Fade in effect for sections */
+#quiz-section, #personal-section {
+    transition: opacity 0.5s ease;
+}.hidden {
+    opacity: 0;
+    pointer-events: none;
+}table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}tr:hover {
+    background-color: #f9f9f9;
+}#averageChart, #sexChart {
+    margin: 20px auto;
+    display: block;
+}h2 {
+    margin-top: 30px;
+    color: #333;
+}/* Responsive styles for mobile */
+@media
+ (max-width: 600px) {
+    body {
+        padding: 10px;
+        max-width: 100%;
+    }h1 {
+    font-size: 1.5em;
+}
+
+form {
+    padding: 10px;
+}
+
+.personal-info input,
+.personal-info select {
+    max-width: none;
+}
+
+.question {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.question label {
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 5px; /* Allow wrapping if needed */
+}
+
+button[type="submit"] {
+    font-size: 14px;
+}
+
+#results {
+    padding: 10px;
+}
+
+#results h2 {
+    font-size: 1.2em;
+}
+
+#results p {
+    font-size: 0.9em;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+table {
+    overflow-x: auto;
+    display: block;
+}
+
+th, td {
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+h2 {
+    font-size: 1.2em;
+}}
