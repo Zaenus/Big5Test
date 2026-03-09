@@ -95,18 +95,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         const tbody = document.querySelector('#results-table tbody');
         results.forEach(row => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${row.id}</td>
-                <td>${row.name}</td>
-                <td>${row.age}</td>
-                <td>${row.sex}</td>
-                <td>${row.extraversion}</td>
-                <td>${row.agreeableness}</td>
-                <td>${row.conscientiousness}</td>
-                <td>${row.neuroticism}</td>
-                <td>${row.openness}</td>
-                <td>${row.timestamp}</td>
-            `;
+            [row.id, row.name, row.age, row.sex, row.extraversion,
+             row.agreeableness, row.conscientiousness, row.neuroticism,
+             row.openness, row.timestamp].forEach(value => {
+                const td = document.createElement('td');
+                td.textContent = value;
+                tr.appendChild(td);
+            });
             tbody.appendChild(tr);
         });
     } catch (error) {
